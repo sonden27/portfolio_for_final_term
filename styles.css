@@ -581,7 +581,6 @@ h3 {
   height: 100%;
   border: none;
   background: #fff; /* Trắng để dễ đọc PDF */
-  filter: invert(1) hue-rotate(180deg); /* Lật màu PDF sang dark mode cực ngầu! */
 }
 
 /* --- RESPONSIVE --- */
@@ -625,7 +624,7 @@ h3 {
     width: 150px;
     height: 150px;
 
-    object-position: center 15%; 
+    object-position: center 5%; 
   
     clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
     transition: 0.3s;
