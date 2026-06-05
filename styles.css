@@ -255,7 +255,6 @@ h3 {
   height: 100%;
   object-fit: cover;
   clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
-  filter: grayscale(80%) contrast(120%) sepia(20%) hue-rotate(180deg);
   transition: 0.3s;
 }
 
@@ -625,6 +624,11 @@ h3 {
   .intro-avatar {
     width: 150px;
     height: 150px;
+
+    object-position: center 15%; 
+  
+    clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
+    transition: 0.3s;
   }
   
   .project-actions {
