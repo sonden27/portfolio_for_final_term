@@ -1,0 +1,21 @@
+{
+  "name": "bui-ngoc-son-digital-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio ky thuat so tong hop cac bai tap mon Nhap mon Cong nghe so va Ung dung Tri tue nhan tao.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "check": "node --check server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "github-pages",
+    "nodejs",
+    "html",
+    "css",
+    "ai"
+  ],
+  "author": "Bui Ngoc Son",
+  "license": "MIT"
+}
