@@ -1,30 +1,30 @@
-# Bui Ngoc Son | Digital Portfolio
+# Bùi Ngọc Sơn | Portfolio Kỹ thuật số
 
-Portfolio ky thuat so tong hop 6 bai tap cua mon Nhap mon Cong nghe so va Ung dung Tri tue nhan tao.
+Portfolio kỹ thuật số tổng hợp 6 bài tập của học phần Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo.
 
-## Chay tren may
+## Chạy trên máy
 
 ```bash
 npm start
 ```
 
-Mac dinh website chay tai `http://localhost:5173`. Neu cong nay dang ban, `server.js` se tu chuyen sang cong tiep theo.
+Mặc định website chạy tại `http://localhost:5173`. Nếu cổng này đang bận, `server.js` sẽ tự chuyển sang cổng tiếp theo.
 
-## Cau truc
+## Cấu trúc
 
-- `index.html`: noi dung portfolio va lien ket toi cac PDF.
-- `styles.css`: giao dien responsive.
-- `script.js`: menu mobile, bo loc du an va trinh xem PDF.
-- `server.js`: static server bang Node.js, khong can cai package ngoai.
-- `*.pdf`: minh chung bai tap theo tung tuan.
-- `bai-tap-du-an-ca-nhan-portfolio.png`: rubric/yeu cau bai tap.
+- `index.html`: nội dung portfolio và liên kết tới các PDF.
+- `styles.css`: giao diện responsive.
+- `script.js`: menu mobile, bộ lọc dự án và trình xem PDF.
+- `server.js`: static server bằng Node.js, không cần cài package ngoài.
+- `*.pdf`: minh chứng bài tập theo từng tuần.
+- `bai-tap-du-an-ca-nhan-portfolio.png`: ảnh yêu cầu bài tập được lưu nội bộ để đối chiếu.
 
-## Dua len GitHub Pages
+## Đưa lên GitHub Pages
 
-1. Tao repository tren GitHub.
-2. Push toan bo thu muc nay len branch `main`.
-3. Vao `Settings > Pages`.
-4. Chon `Deploy from a branch`, branch `main`, folder `/root`.
-5. Mo URL GitHub Pages duoc cap sau khi deploy xong.
+1. Tạo repository trên GitHub.
+2. Push toàn bộ thư mục này lên branch `main`.
+3. Vào `Settings > Pages`.
+4. Chọn `Deploy from a branch`, branch `main`, folder `/root`.
+5. Mở URL GitHub Pages được cấp sau khi deploy xong.
 
-Vi website la static site, GitHub Pages co the serve truc tiep tu `index.html` ma khong can build step.
+Vì website là static site, GitHub Pages có thể serve trực tiếp từ `index.html` mà không cần build step.

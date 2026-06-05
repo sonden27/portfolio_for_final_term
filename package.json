@@ -2,7 +2,7 @@
   "name": "bui-ngoc-son-digital-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Portfolio ky thuat so tong hop cac bai tap mon Nhap mon Cong nghe so va Ung dung Tri tue nhan tao.",
+  "description": "Portfolio kỹ thuật số tổng hợp các bài tập môn Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo.",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
@@ -16,6 +16,6 @@
     "css",
     "ai"
   ],
-  "author": "Bui Ngoc Son",
+  "author": "Bùi Ngọc Sơn",
   "license": "MIT"
 }
