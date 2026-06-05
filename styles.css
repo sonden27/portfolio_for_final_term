@@ -51,7 +51,7 @@ body::after {
     transparent 2px
   );
   pointer-events: none;
-  z-index: 9999;
+  z-index: 10;
 }
 
 img, iframe {
@@ -245,21 +245,35 @@ h3 {
   border: 3px solid var(--cb-yellow);
   padding: 5px;
   background: #000;
-  /* Cắt góc kiểu HUD */
   clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
   position: relative;
+  
+  /* Đặt Avatar nằm dưới lớp sọc ngang (sọc ngang đang là 10) */
+  z-index: 5; 
+  transition: all 0.3s ease;
 }
 
+/* THÊM HIỆU ỨNG CHO KHUNG AVATAR KHI HOVER */
+.intro-avatar:hover {
+  /* Nổi bứt lên trên lớp sọc ngang */
+  z-index: 20; 
+  /* Tỏa ánh sáng Neon bám theo đường cắt polygon */
+  filter: drop-shadow(0 0 15px rgba(252, 226, 5, 0.6)); 
+}
+
+/* Giữ nguyên phần hình ảnh bên trong (nếu bạn đã chỉnh theo ý muốn) */
 .intro-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 2%; 
+  transform: scale(1.05); 
   clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
   transition: 0.3s;
 }
 
 .intro-avatar:hover img {
-  filter: grayscale(0%) contrast(110%);
+  transform: scale(1.1);
 }
 
 .intro-tags {
@@ -514,73 +528,117 @@ h3 {
   text-shadow: 0 0 10px var(--cb-yellow);
 }
 
-/* --- PDF MODAL (Terminal Style) --- */
+/* --- TÂN TRANG PDF MODAL (HỆ THỐNG HIỂN THỊ DỮ LIỆU) --- */
+
 .pdf-modal {
   position: fixed;
   inset: 0;
-  z-index: 99;
+  z-index: 999; /* Nổi lên trên cùng */
   display: none;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(4px);
-  padding: 2vh 2vw;
+  background: rgba(5, 5, 10, 0.9); /* Nền đen sâu hơn */
+  background-image: radial-gradient(circle at center, rgba(0, 240, 255, 0.1) 0%, transparent 60%);
+  backdrop-filter: blur(10px);
+  padding: 3vh 3vw;
 }
 
 .pdf-modal.open {
   display: block;
 }
 
+/* Khung viền công nghệ (Data Pad) */
 .pdf-dialog {
   width: 100%;
   height: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  background: #000;
-  border: 2px solid var(--cb-green);
+  background: #050508;
+  border: 1px solid var(--cb-blue);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.15), inset 0 0 15px rgba(0, 240, 255, 0.2);
+  padding: 6px; /* Tạo viền bao quanh phần giấy trắng */
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 30px rgba(57, 255, 20, 0.2);
+  position: relative;
 }
 
+/* Thêm 4 góc định vị màn hình (HUD Corners) */
+.pdf-dialog::before, .pdf-dialog::after {
+  content: "";
+  position: absolute;
+  width: 40px; 
+  height: 40px;
+  pointer-events: none;
+  z-index: 10;
+}
+.pdf-dialog::before {
+  top: -2px; left: -2px;
+  border-top: 3px solid var(--cb-pink);
+  border-left: 3px solid var(--cb-pink);
+}
+.pdf-dialog::after {
+  bottom: -2px; right: -2px;
+  border-bottom: 3px solid var(--cb-pink);
+  border-right: 3px solid var(--cb-pink);
+}
+
+/* Header Terminal */
 .pdf-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background: rgba(57, 255, 20, 0.1);
-  border-bottom: 2px solid var(--cb-green);
+  padding: 12px 20px;
+  background: #000;
+  border-bottom: 2px solid var(--cb-blue);
+  /* Lưới Grid kỹ thuật số trên Header */
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.15) 1px, transparent 1px);
+  background-size: 10px 10px;
 }
 
 .pdf-header h2 {
-  color: var(--cb-green);
-  font-size: 1.2rem;
-  text-shadow: none;
+  color: var(--cb-blue);
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px var(--cb-blue);
   margin: 0;
+  letter-spacing: 1px;
 }
 .pdf-header h2::before {
-  content: "C:\\VIEWER> ";
+  content: "C:\\SECURE_DOCS> ";
+  color: var(--cb-yellow);
+}
+/* Con trỏ nhấp nháy */
+.pdf-header h2::after {
+  content: " \2588"; /* Ký tự ô vuông đặc */
+  animation: blink 1s step-end infinite;
+  color: var(--cb-blue);
 }
 
+/* Nút thoát khẩn cấp */
 .pdf-close {
-  background: transparent;
+  background: rgba(255, 0, 60, 0.1);
   color: var(--cb-pink);
   border: 1px solid var(--cb-pink);
   width: 35px;
   height: 35px;
   font-weight: bold;
   cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 0, 60, 0.2);
   transition: 0.2s;
 }
 
 .pdf-close:hover {
   background: var(--cb-pink);
   color: #000;
+  box-shadow: 0 0 20px var(--cb-pink);
 }
 
+/* Khung tài liệu trắng */
 .pdf-dialog iframe {
   width: 100%;
   height: 100%;
-  border: none;
-  background: #fff; /* Trắng để dễ đọc PDF */
+  border: 1px solid #222; /* Viền tối mỏng quanh tờ giấy trắng */
+  background: #fff; 
+  opacity: 0.96; /* Hạ độ sáng của PDF trắng xuống 4% để bớt chói mắt so với nền đen */
 }
 
 /* --- RESPONSIVE --- */
